@@ -45,10 +45,23 @@ public class BibliotecaApp {
     static void mostrarPrestamos() { /* TODO */ }
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
-    static void eliminarPrestamo() { /* TODO */ }
+    static void eliminarPrestamo() { 
+        for (i=0 ; i<prestamos.size(); i++){
+        if(idPrestamo==idBuscado){
+            prestamos.remove(i);
+            eliminado=true;
+            System.out.println("Prestamo eliminado correctamente");
+        }
+    }
+     }
+
 
     // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { /* TODO */ }
+    static void calcularTotalMultas() { 
+        multas=diasPrestamo*multaPorDia 
+        System.out.println("El total de la multa es: "+multas);
+    }
+    
 
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
