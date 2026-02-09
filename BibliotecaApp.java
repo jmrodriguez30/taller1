@@ -14,14 +14,14 @@ public class BibliotecaApp {
             opcion = leerEntero("Seleccione una opción: ");
 
             switch (opcion) {
-                case 1 -> registrarPrestamo();
-                case 2 -> mostrarPrestamos();
-                case 3 -> buscarPrestamoPorId();
-                case 4 -> actualizarPrestamo();
-                case 5 -> eliminarPrestamo();
-                case 6 -> calcularTotalMultas();
-                case 7 -> System.out.println("Saliendo...");
-                default -> System.out.println("Opción inválida.");
+                case 1: registrarPrestamo();
+                case 2: mostrarPrestamos();
+                case 3: buscarPrestamoPorId();
+                case 4: actualizarPrestamo();
+                case 5: eliminarPrestamo();
+                case 6: calcularTotalMultas();
+                case 7: System.out.println("Saliendo...");
+                default: System.out.println("Opción inválida.");
             }
             System.out.println();
         } while (opcion != 7);
@@ -46,20 +46,40 @@ public class BibliotecaApp {
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
     static void eliminarPrestamo() { 
-        for (i=0 ; i<prestamos.size(); i++){
-        if(idPrestamo==idBuscado){
+        
+        System.out.println("Ingrese el ID del préstamo a eliminar: ")
+        int idPrestamo=sc.nextInt();
+        boolean eliminado = false;
+
+for (int i = 0; i < prestamos.size(); i++) {
+        if (prestamos.get(i).getIdPrestamo() == idBuscado) {
             prestamos.remove(i);
-            eliminado=true;
-            System.out.println("Prestamo eliminado correctamente");
+            eliminado = true;
+            System.out.println("Préstamo eliminado correctamente");
+            break;
         }
     }
+
+    if (!eliminado) {
+        System.out.println("No existe un préstamo con ese ID");
+    }
+
+
      }
 
 
     // ====== Cálculo (por implementar) ======
     static void calcularTotalMultas() { 
-        multas=diasPrestamo*multaPorDia 
+        int diasUsados;
+        System.out.println("Digite los dias que uso el libro");
+        diasUsados=sc.nextInt;
+
+        if(diasUsados>diasPrestamo){
+        multas=(diasUsados-diasPrestamos)*multaPorDia 
         System.out.println("El total de la multa es: "+multas);
+        } else{
+            System.out.println("No tiene multa");
+        }
     }
     
 
